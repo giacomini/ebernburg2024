@@ -9,6 +9,10 @@
   - [Setup workspace](#setup-workspace)
   - [Setup XServer](#setup-xserver)
 
+This guide documents the steps to perform in order to install, on _windows-based_
+laptops and desktops, all the software needed to fruitfully attend the hands-on
+session of this **C++ Basic Workshop**.
+
 ## Setup WSL
 
 To enable the most recent version of Windows Subsystem for Linux, Virtualization
