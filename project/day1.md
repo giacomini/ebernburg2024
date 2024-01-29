@@ -162,7 +162,7 @@ int main()
 ```
 
 compile and **fix one by one the bugs** that were **introduced deliberately**.
-WHile doing that pay attention to what is reported by the compiler's error
+While doing that pay attention to what is reported by the compiler's error
 messages.
 
 ### Two simple exercises
