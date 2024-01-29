@@ -1,0 +1,8 @@
+{
+  "MD014": false,
+  "MD033": {
+    "allowed_elements": [
+      "sup", "kbd"
+    ]
+  }
+}
