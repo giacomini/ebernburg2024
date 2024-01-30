@@ -220,6 +220,10 @@ and a absorbed luminosity of 0.01 yields a local heating of approximately -252 Â
 > :warning: The formula presented right above is somehow arbitrary. We decided
 > to stick to it as the purpose of this corse is learning basics of C++, hence
 > we decided to somehow compromise accuracy to favor simplicity.
+>
+> :exclamation: The `doctest::Approx` wrapper, very useful when dealing with
+> rounding coming from floating point calculations, is documented
+> [here](https://github.com/doctest/doctest/blob/master/doc/markdown/assertions.md#floating-point-comparisons)
 
 Implement and test the function `local_heating` that given the `solar_luminosity`
 and `albedo` returns the _local heating_ given by the formulas above.
@@ -284,7 +288,7 @@ vector with the new temperatures after diffusion.
 >
 > ```c++
 > int N{10};
-> std::vector<double> my_vector{N};
+> std::vector<double> my_vector(N);
 > ```
 >
 
@@ -297,7 +301,7 @@ TEST_CASE("Testing diffusion") {
       double diffusion_rate = 1.;
       double temperature = 0.;
       std::vector<double> temperatures(9, temperature);
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) ==
             doctest::Approx(sum_all(temperatures)));
       for(auto const& t:diffused_temperature){
@@ -309,7 +313,7 @@ TEST_CASE("Testing diffusion") {
       double diffusion_rate = 1.;
       double temperature = 8.;
       std::vector<double> temperatures(9, temperature);
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) == doctest::Approx(sum_all(temperatures)));
       for(auto const& t:diffused_temperature){
         CHECK(t == doctest::Approx(8.));
@@ -320,7 +324,7 @@ TEST_CASE("Testing diffusion") {
     SUBCASE("Diffusion rate 1") {
       double diffusion_rate = 1.;
       std::vector<double> temperatures{0., 0., 0., 0., 8., 0., 0., 0., 0.};
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) == doctest::Approx(8.));
       CHECK(diffused_temperature[0] == doctest::Approx(1.));
       CHECK(diffused_temperature[1] == doctest::Approx(1.));
@@ -335,7 +339,7 @@ TEST_CASE("Testing diffusion") {
     SUBCASE("Diffusion rate 0.5") {
       double diffusion_rate = 0.5;
       std::vector<double> temperatures{0., 0., 0., 0., 8., 0., 0., 0., 0.};
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) == doctest::Approx(8.));
       CHECK(diffused_temperature[0] == doctest::Approx(0.5));
       CHECK(diffused_temperature[1] == doctest::Approx(0.5));
@@ -350,7 +354,7 @@ TEST_CASE("Testing diffusion") {
     SUBCASE("Diffusion rate 0.") {
       double diffusion_rate = 0.;
       std::vector<double> temperatures{0., 0., 0., 0., 8., 0., 0., 0., 0.};
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) == doctest::Approx(8.));
       CHECK(diffused_temperature[0] == doctest::Approx(0.));
       CHECK(diffused_temperature[1] == doctest::Approx(0.));
@@ -367,7 +371,7 @@ TEST_CASE("Testing diffusion") {
     SUBCASE("Diffusion rate 1") {
       double diffusion_rate = 1.;
       std::vector<double> temperatures{8., 0., 0., 0., 0., 0., 0., 0., 0.};
-      auto diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
+      std::vector<double> diffused_temperature = diffuse(temperatures, 3, diffusion_rate);
       CHECK(sum_all(diffused_temperature) == doctest::Approx(8.));
       CHECK(diffused_temperature[0] == doctest::Approx(5.));
       CHECK(diffused_temperature[1] == doctest::Approx(1.));
@@ -385,10 +389,6 @@ TEST_CASE("Testing diffusion") {
 
 > :exclamation: Read carefully the tests and try to understand what is the
 > expected interface and implement the function so that the tests all succeed.
->
-> :exclamation: The `doctest::Approx` wrapper, very useful when dealing with
-> rounding coming from floating point calculations, is documented
-> [here](https://github.com/doctest/doctest/blob/master/doc/markdown/assertions.md#floating-point-comparisons)
 >
 > :question: What is the purpose of the `sum_all` function? How would you
 > implement it?
