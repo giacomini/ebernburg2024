@@ -167,4 +167,4 @@ messages.
 ### Solutions
 
 The day following each project session, we will release proposals of solutions
-for the exercises and activities that tok place in class [here](solutions/).
+for the exercises and activities that took place in class [here](solutions/).
