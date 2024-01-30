@@ -269,8 +269,8 @@ The diffusion process goes like this:
 - Regardless of topology, the sum of temperatures will be conserved across the
   grid.
 
-Implement the `diffusion` function that takes as arguments a vector of
-temperatures, the size (dimension of one side) of the grid and returns a new
+Implement the `diffuse` function that takes as arguments a vector of
+temperatures, the size (dimension of one side) of the grid, and the diffusion rate and returns a new
 vector with the new temperatures after diffusion.
 
 > :warning: A grid of temperatures can be represented with a single vector of
