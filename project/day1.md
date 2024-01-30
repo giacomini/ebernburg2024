@@ -5,7 +5,6 @@
     - [Working area setup](#working-area-setup)
     - [Code formatting with _clang-format_](#code-formatting-with-clang-format)
     - [Getting familiar with the GCC C++ compiler](#getting-familiar-with-the-gcc-c-compiler)
-    - [Two simple exercises](#two-simple-exercises)
     - [Solutions](#solutions)
 
 ## Warm-up
@@ -165,18 +164,7 @@ compile and **fix one by one the bugs** that were **introduced deliberately**.
 While doing that pay attention to what is reported by the compiler's error
 messages.
 
-### Two simple exercises
-
-In a new file called `sum_n.cpp`, write a program that reads from standard input
-the number _N_, **computes the sum the first _N_ integer numbers** and prints the
-result on the terminal.
-
-Similarly, in a file called `fibonacci.cpp`, write a program that reads from
-standard input the number _n_, **computes the
-[Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence)
-up to order _n_** and prints the result on the terminal.
-
 ### Solutions
 
-The day following each project session, we will release the solution of proposed
-exercises and task in the following [folder](solutions/).
+The day following each project session, we will release proposals of solutions
+for the exercises and activities that tok place in class [here](solutions/).
