@@ -43,7 +43,7 @@ increases:
 
 Several variants of the _toy model_ were developed over the years (e.g.
 deterministic, as the one described above, or stochastic - some examples can be
-found in</sup> [[3]](#bibliography)</sup> and</sup>[[4]](#bibliography)</sup>).
+found in<sup> [[3]](#bibliography)</sup> and<sup> [[4]](#bibliography)</sup>).
 
 ## Project overview and day-by-day activities
 
@@ -57,7 +57,7 @@ the simulation parameters and the evolution algorithm is available
 Every day, guidelines will be provided in order to _translate to C++_ what
 described in the project overview page:
 
-- [Monday](day1.md): working area configuration, use of _ClangFormat_,
+- [Monday](day1.md): working area configuration, use of _clang-format_,
   getting familiar with the `g++` compiler;
 - [Tuesday](day2.md): writing functions and testing them with _doctest_;
 - [Wednesday](day3.md): implementing Daisyworld components using C++ (1);
@@ -65,7 +65,7 @@ described in the project overview page:
 - [Friday](day5.md): compilation model, separation of the project into
   multiple files, use of _CMake_.
 
-> :warning: the actual distribution of activities during each day's project
+> :warning: The actual distribution of activities during each day's project
 > development session is subject to variations to adapt to the topics covered
 > until that moment during the lectures.
 
