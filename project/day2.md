@@ -217,6 +217,10 @@ where an absorbed luminosity of 1 yields a local heating of 80 ºC,
 and an absorbed luminosity of .5 yields a local heating of approximately 30 ºC,
 and a absorbed luminosity of 0.01 yields a local heating of approximately -252 ºC.
 
+> :warning: The formula presented right above is somehow arbitrary. We decided
+> to stick to it as the purpose of this corse is learning basics of C++, hence
+> we decided to somehow compromise accuracy to favor simplicity.
+
 Implement and test the function `local_heating` that given the `solar_luminosity`
 and `albedo` returns the _local heating_ given by the formulas above.
 
@@ -267,13 +271,24 @@ vector with the new temperatures after diffusion.
 
 > :warning: A grid of temperatures can be represented with a single vector of
 > doubles, and its size (a single `int` for a square matrix)  
-> Given the index `idx`, the row and column number are the _quotient_ an
-  _remainder_ of the integer division `idx/size`, respectively.
+> Given the index `idx`, the row and column number are the _quotient_ and the
+> _remainder_ of the integer division `idx/size`, respectively.
 >
 > :exclamation: Given the `row` and `column` you can obtain the index as
 > `idx = row * size + col`
+>
+> :exclamation: A broader overview of the functionalities provided by
+> `std::vector` will be presented in class on Thursday. For now you can
+> assume that you can create a `std::vector` of size _N_, initialized by default
+> to _0_,  by writing something like:
+>
+> ```c++
+> int N{10};
+> std::vector<double> my_vector{N};
+> ```
+>
 
-The `diffusion_rate` function should satisfy the following tests:
+The `diffusion` function should satisfy the following tests:
 
 ```c++
 TEST_CASE("Testing diffusion") {
