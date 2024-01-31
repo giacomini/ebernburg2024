@@ -25,8 +25,8 @@ world** itself.
 > ```
 >
 > **NOTE**: Mac OS users may try to use the _clang_ C++ compiler in this case (
-> `g++ -std=c++17`), but still don't expect the address sanitizer to be perfect
-> in your case.
+> `g++ -std=c++17`), but still should not expect the address sanitizer to be
+> perfect in your case.
 
 ### Model a `Patch` of land
 
@@ -155,16 +155,20 @@ proposed interface for `Patch` "incrementally":
 
 ```c++
 TEST_CASE("Test patches") {
-  Patch p0(Daisy::Barren, 0., 0.);
-  Patch p1(Daisy::White, 0., 0.);
-  Patch p2(Daisy::Black, 10., 25.);
+  Patch p0(Daisy::Barren, 0., 0);
+  Patch p1(Daisy::White, 0., 0);
+  Patch p2(Daisy::Black, 20., 25);
 
   CHECK(p0.daisy() == Daisy::Barren);
   CHECK(p1.daisy() == Daisy::White);
   CHECK(p2.daisy() == Daisy::Black);
-  CHECK_THROWS(Patch{Daisy::Barren, 0., 0.});
+  CHECK_THROWS(Patch{Daisy::Barren, 0., -1});
 }
 ```
+
+> You can look at
+> [this page](https://github.com/doctest/doctest/blob/master/doc/markdown/assertions.md#exceptions)
+> to learn more about `CHECK_THROWS`.
 
 </details>
 
@@ -179,7 +183,7 @@ TEST_CASE("Test patches") {
   SUBCASE("Testing temperature retrieval") {
     CHECK(p0.temperature() == doctest::Approx(0.));
     CHECK(p1.temperature() == doctest::Approx(0.));
-    CHECK(p2.temperature() == doctest::Approx(10.));
+    CHECK(p2.temperature() == doctest::Approx(20.));
   }
 ```
 
