@@ -24,7 +24,7 @@ world** itself.
 > $ g++ -Wall -Wextra -fsanitize=address,undefined daisyworld.cpp -o daisyworld
 > ```
 >
-> :NOTE: Mac OS users may try to use the _clang_ C++ compiler in this case (
+> **NOTE**: Mac OS users may try to use the _clang_ C++ compiler in this case (
 > `g++ -std=c++17`), but still don't expect the address sanitizer to be perfect
 > in your case.
 
