@@ -169,7 +169,7 @@ For the second you will need to implement a new method within the `Patch` class.
 This method will return the probability of the patch to seed the neighboring
 patches based on this equation:
 
-$$ f(t) = -0.6443 + 0.1457\; T - 0.0032\; T^2 $$
+$$ f(t) = -0.6443 + 0.1457 T - 0.0032 T^2 $$
 
 > **NOTE**: in our case the new `Patch` method was called `seeding_threshold`.
 
