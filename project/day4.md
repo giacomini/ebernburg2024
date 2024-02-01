@@ -7,8 +7,8 @@ behavior of some of the `World` class methods.
 
 Let's therefore set some **good practices** about the generating random numbers
 in C++.
-We wil do that trying to understand what this _simple example_ is doing, and why
-it was written like this:
+We will do that, by studying what this _simple example_ is doing, and why
+it is written like this:
 
 ```c++
 #include <iostream>
@@ -26,11 +26,11 @@ int main() {
 }
 ```
 
-Firstly, already looking at includes, we learn that the _standard library_
+First, by looking at the includes, we can see that the _standard library_
 provides tools to handle random number generation in
 [`random`](https://en.cppreference.com/w/cpp/header/random).
 
-Secondly, we see that we are actually using two distinct functionalities:
+Second, we can see that we are actually using two distinct components:
 
 - We create a so called _random engine_ (`std::default_random_engine eng{}`):  
   this is what actually defines the pseudo-random generation algorithm we are using;
@@ -51,7 +51,6 @@ run it a few times.
 
 This is because the `default_random_engine` generates numbers _pseudo randomly_,
 starting always from the same seed.
-
 If you make the _seed_ random, then the program behavior should change every
 time, you can do that by applying the following change:
 
@@ -67,7 +66,7 @@ In this case, for seeding, we use `std::random_device`:
 :warning: At this point, you might wondering why bothering with a _random
 engine_ if `std::random_device` is available.
 
-> **Good practice**: as `std::random_device` accesses hardware reources, it is
+> **Good practice**: as `std::random_device` accesses hardware resources, it is
 > slower than a _pseudo random_ generator.
 > Because of that a two-step approach is recommended.
 
@@ -83,7 +82,7 @@ Our recommendation, _unless you have special needs_, is:
 > **Good practice**: instead, build distributions in a (more) local scope,
 > closer to where you use them.
 
-We conclude this section with a couple of remarks:
+We conclude this section with a two remarks:
 
 > **Good practice**: **limit as much as possible the inclusion of randomness
 > in your tests** (e.g. aim for program designs that favor testing  by isolating
@@ -97,5 +96,10 @@ We conclude this section with a couple of remarks:
 
 :exclamation: As we have just discussed `std::vector`, try to experiment by
 putting the results from the calls to `gauss{mean, sigma}` into a vector,
-then make a second loop for printing, or to try to compute the sample mean
+then make a second loop:
+
+- to print results
+- or to try to compute the sample mean and sigma (may be increasing the number
+- of generated numbers)
+- or try to remove from the vectors all negative numbers
 ...
