@@ -122,8 +122,8 @@ possible approach could be:
 
 ```c++
 TEST_CASE("Test absorb_light") {
-    Patch p(Daisy::Black, 10., 0);
-    double solar_intensity{1.}
+    Patch p(Daisy::Black, 20., 0);
+    double solar_intensity{1.};
     p.absorb_light(solar_intensity);
     CHECK(p.temperature() == doctest::Approx(39.6).epsilon(0.01))
 }
