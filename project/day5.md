@@ -95,7 +95,7 @@ We suggest to **start the migration** with the _constructor_.
 
 > :exclamation: When moved to the `cpp`, `Patch(Daisy daisy, double
 > temperature, int age)` goes out of the class' scope.  
-> You must prepend `Path::` to the _constructor_'s name.
+> You must prepend `Patch::` to the _constructor_'s name.
 
 When done, compile by running:
 
@@ -221,10 +221,10 @@ Adapt the main file to your `simulate` function. In addition consider moving
 some _parameters to the setup phase_, maybe passing them directly from the `main`
 function.
 
-> :warning: Printing to screen is a lengthy process, and takes in our case) more
-> time than the simulation itself. To allow it to keep up with the simulation we
-> can include a _brief pause_ in the process by using functions from the
-> `thread` and the `chrono` libraries of the standard:
+> :warning: Printing to screen is a lengthy process, and takes (in our case)
+> more time than the simulation itself. To allow it to keep up with the
+> simulation we can include a _brief pause_ in the process by using functions
+> from the `thread` and the `chrono` libraries of the standard:
 >
 > ```c++
 > std::this_thread::sleep_for(std::chrono::milliseconds(100));
