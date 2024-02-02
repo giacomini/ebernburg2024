@@ -100,7 +100,7 @@ We suggest to **start the migration** with the _constructor_.
 When done, compile by running:
 
 ```bash
-$ g++ -Wall -Wextra -fsanitize=address,undefined daisyworld.cpp -o daisyworld
+$ g++ -Wall -Wextra -fsanitize=address,undefined daisyworld.cpp patch.cpp -o daisyworld
 ```
 
 > :exclamation: Note that this time **we have two TUs**, hence both need to be
